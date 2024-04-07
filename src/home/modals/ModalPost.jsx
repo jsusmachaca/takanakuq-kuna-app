@@ -16,13 +16,13 @@ export const ModalPost = (props) => {
     >
       <TouchableOpacity onPress={() => onShowModal(false)} style={{marginBottom: 10}}>
         <View style={{
-          borderRadius: 50,
-          width: 40,
-          height: 40,
-          justifyContent: "center",
-          alignItems: "center"
+          width: "90%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-end",
+
         }}>
-          <Text>❌</Text>
+          <Text>❌</Text>          
         </View>
       </TouchableOpacity>
 
