@@ -9,6 +9,8 @@ export const Posts = () => {
   const [refreshing, setRefreshing] = useState(false);
   const [ mostData, setData] = useState({})
 
+
+
   useEffect(() => {
     apiClient.get(`/api/posts/all`)
       .then(res => setData(res.data))
@@ -25,12 +27,14 @@ export const Posts = () => {
     }, 2000); 
   };
 
+
   return (
+    <>
     <FlatList
       refreshControl={
         <RefreshControl 
-          refreshing={refreshing}
-          onRefresh={onRefresh}
+        refreshing={refreshing}
+        onRefresh={onRefresh}
         />
       }
       onScroll={ ({ nativeEvent }) => {
@@ -43,6 +47,7 @@ export const Posts = () => {
       renderItem={({ item: data }) => (
         <PostsItem data={data} />
       )}
-    />
+      />
+    </>
   )
 }

@@ -1,5 +1,6 @@
-import React from "react"
-import { StyleSheet, View, Text, Image } from "react-native"
+import React, { useState } from "react"
+import { StyleSheet, View, Text, Image, TouchableWithoutFeedback, Modal } from "react-native"
+import { ModalPost } from '../modals/ModalPost.jsx';
 
 import defaultProfile from '../assets/avatars/default.png'
 import avocado from '../assets/avatars/avocado.avatar.png'
@@ -13,15 +14,17 @@ import kactus from '../assets/avatars/kactus.avatar.png'
 export const PostsItem = (props) => {
   const { data } = props
 
+  const [ showModal, setVisible ] = useState(false)
+
   const randomAvatars = () => {
     const avatars = [defaultProfile, avocado, bear, koala, sheep, spider, kactus]
     const random = Math.floor(Math.random()  * avatars.length)
-    console.log(Math.floor(Math.random() * avatars.length))
     const image = avatars[random]
     return image
   }
 
   return (
+    <>
     <View
       key={data.id}
     >
@@ -49,7 +52,7 @@ export const PostsItem = (props) => {
               ? data.post
               : `${data.post.slice(0, 120)}...`}
             {data.post.length > 120 && (
-              <TouchableWithoutFeedback onPress={ () => console.log('Hola mundo') }>
+              <TouchableWithoutFeedback onPress={ () => setVisible(true) }>
                 <Text style={styles.showMore}>Ver más</Text>
               </TouchableWithoutFeedback>
             )}
@@ -81,6 +84,11 @@ export const PostsItem = (props) => {
         </View>
       )}
     </View>
+
+      <Modal visible={showModal} transparent={true} >
+        <ModalPost post={data.post} post_image={data.post_image} onShowModal={setVisible} />
+      </Modal>
+    </>
   )
 }
 

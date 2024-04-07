@@ -1,7 +1,7 @@
 import axios from "axios"
 
 
-const API_URL = 'http://192.168.59.185:3000'
+const API_URL = process.env.API_URL
 
 export const apiClient = axios.create({
   baseURL: API_URL
