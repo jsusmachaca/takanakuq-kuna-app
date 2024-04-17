@@ -10,7 +10,6 @@ export const Posts = () => {
   const [ mostData, setData] = useState({})
 
 
-
   useEffect(() => {
     apiClient.get(`/api/posts/all`)
       .then(res => setData(res.data))
@@ -24,7 +23,7 @@ export const Posts = () => {
         .then(res => setData(res.data))
         .catch(err => console.error(err))
       setRefreshing(false);
-    }, 2000); 
+    }, 2000);
   };
 
 
@@ -47,7 +46,7 @@ export const Posts = () => {
       renderItem={({ item: data }) => (
         <PostsItem data={data} />
       )}
-      />
+    />
     </>
   )
 }
