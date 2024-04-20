@@ -1,5 +1,5 @@
 import { View, Text, FlatList, Image, RefreshControl } from "react-native";
-import { apiClient } from "../../api-client/client";
+import { apiClient } from "../../../api-client/client";
 import { useState, useEffect } from "react";
 import { PostsItem } from "./PostsItem";
 

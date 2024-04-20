@@ -1,38 +1,22 @@
 import { useState } from "react";
-import { StyleSheet, Text, Image, View, TouchableOpacity, ScrollView, Pressable } from "react-native";
-
+import { Text, Image, View, TouchableOpacity, ScrollView, Pressable } from "react-native";
+import { styles } from "../styles/ModalStyles";
 
 export const ModalPost = (props) => {
   const { onShowModal } = props
 
   return (
     <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "rgba(0,0,0,0.9)"
-      }}
+      style={styles.modalBackground}
     >
       <TouchableOpacity onPress={() => onShowModal(false)} style={{marginBottom: 10}}>
-        <View style={{
-          width: "90%",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "flex-end",
-
-        }}>
+        <View style={styles.closeModal}>
           <Text>❌</Text>          
         </View>
       </TouchableOpacity>
 
       <View
-        style={{
-          backgroundColor: "white",
-          width: "95%",
-          height: "80%",
-          borderRadius: 20
-        }}
+        style={styles.modalPostBackground}
       >
         <ScrollView>
           <View >
@@ -59,18 +43,3 @@ export const ModalPost = (props) => {
     </View>
   )
 }
-
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    paddingBottom: 20,
-  },
-  posts: {
-    fontSize: 22.6
-  },
-  postImage: {
-    maxWidth: '100%',
-    height: 280
-  },
-})
