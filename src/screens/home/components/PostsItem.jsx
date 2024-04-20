@@ -29,6 +29,7 @@ export const PostsItem = (props) => {
     <TouchableNativeFeedback onPress={ () => setVisible(true) }>
       <View
         key={data.id}
+        style={styles.container}
       >
         <View style={styles.date_name}>
           <View style={styles.date_name}>
@@ -45,14 +46,14 @@ export const PostsItem = (props) => {
             />
             <Text style={styles.username}>{data.username}</Text>
           </View>
-          <Text style={styles.date}>{data.date_publish.slice(0, 10)}</Text>
+          <Text style={styles.date}>{data.date_publish.slice(0, 10).replace(/-/g, '/')}</Text>
         </View>
         {data.post && data.post_image && (
           <View>
             <Text style={styles.postText}>
               {data.post.length <= 100
                 ? data.post
-                : `${data.post.slice(0, 120)}...`}
+                : `${data.post.slice(0, 115)}...`}
               {data.post.length > 120 && (
                   <Text style={styles.showMore}>Ver más</Text>
               )}
@@ -86,7 +87,15 @@ export const PostsItem = (props) => {
       </View>
     </TouchableNativeFeedback>
     <Modal visible={showModal} transparent={true} animationType="slide" >
-      <ModalPost post={data.post} post_image={data.post_image} onShowModal={setVisible} />
+      <ModalPost 
+        id={data.id} 
+        post={data.post} 
+        post_image={data.post_image} 
+        username={data.username} 
+        profile_image={data.profile_image} 
+        date_publish={data.date_publish}
+        onShowModal={setVisible}
+      />
     </Modal>
     </>
   )

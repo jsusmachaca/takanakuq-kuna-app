@@ -7,7 +7,7 @@ export const Home = () => {
   return (
     <>
       <StatusBar />
-      <View>
+      <View style={{backgroundColor: "#D6D6D6"}}>
         <Posts />
       </View>
     </>

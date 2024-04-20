@@ -2,16 +2,11 @@ import { StyleSheet } from "react-native"
 
 
 export const styles = StyleSheet.create({
+  scrollView: {
+    margin: 6
+  },
   container: {
-    padding: 20,
     paddingBottom: 20,
-  },
-  posts: {
-    fontSize: 22.6
-  },
-  postImage: {
-    maxWidth: '100%',
-    height: 280
   },
   modalBackground: {
     flex: 1,
@@ -24,12 +19,28 @@ export const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "flex-end",
-
   },
   modalPostBackground: {
     backgroundColor: "white",
     width: "95%",
-    height: "80%",
+    height: "90%",
     borderRadius: 20
-  }
+  },
+  posts: {
+    fontSize: 22.6,
+    margin: 10
+  },
+  postImage: {
+    maxWidth: '100%',
+    height: 280,
+    borderRadius: 20
+  },
+
+  comments: {
+    backgroundColor: "#E9E9E9",
+    borderRadius: 20,
+    paddingTop: 10,
+    paddingLeft: 3,
+    marginTop: 10
+  },
 })

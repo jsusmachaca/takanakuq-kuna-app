@@ -3,11 +3,13 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
   postText: {
-    fontSize: 22.6
+    fontSize: 22,
+    margin: 10
   },
   postImage: {
     maxWidth: '100%',
-    height: 280
+    height: 280,
+    borderRadius: 20
   },
   imageProfile: {
     width: 45,
@@ -16,10 +18,12 @@ export const styles = StyleSheet.create({
     marginRight: 10
   },
   container: {
-    padding: 5,
-    paddingBottom: 20,
+    margin: 5,
+    padding: 10,
     borderWidth: 1,
-    borderColor: '#000'
+    borderColor: '#000',
+    borderRadius: 20,
+    backgroundColor: "#fff"
   },
   username: {
     fontWeight: "bold",
