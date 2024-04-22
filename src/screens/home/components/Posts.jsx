@@ -4,11 +4,9 @@ import { useState, useEffect } from "react";
 import { PostsItem } from "./PostsItem";
 
 
-
 export const Posts = () => {
   const [refreshing, setRefreshing] = useState(false);
   const [ mostData, setData] = useState({})
-
 
   useEffect(() => {
     apiClient.get(`/api/posts/all`)
@@ -25,7 +23,6 @@ export const Posts = () => {
       setRefreshing(false);
     }, 2000);
   };
-
 
   return (
     <>
