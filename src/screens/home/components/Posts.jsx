@@ -1,5 +1,5 @@
 import { View, Text, FlatList, Image, RefreshControl } from "react-native";
-import { apiClient } from "../../../api-client/client";
+import { apiClient } from "../../../api/client";
 import { useState, useEffect } from "react";
 import { PostsItem } from "./PostsItem";
 
@@ -18,7 +18,10 @@ export const Posts = () => {
     setRefreshing(true);
     setTimeout(() => {
       apiClient.get(`/api/posts/all`)
-        .then(res => setData(res.data))
+        .then(res => {
+          setData(res.data)
+          console.log(res.data)
+        })
         .catch(err => console.error(err))
       setRefreshing(false);
     }, 2000);

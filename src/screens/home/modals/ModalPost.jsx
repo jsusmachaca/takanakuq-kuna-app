@@ -1,12 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Text, Image, View, TouchableOpacity, ScrollView, Pressable } from "react-native";
 import { styles } from "../styles/ModalStyles";
 import { CommentItem } from "../components/CommentItem";
 import { ModalProfileHeader } from "../components/ModalProfileHeader";
+import { apiClient } from "../../../api/client";
 
 
 export const ModalPost = (props) => {
-  const { onShowModal } = props
+  const { onShowModal, post_id } = props
+  const [ comments, setComments ] = useState([])
+
+  useEffect(() => {
+    apiClient.get(`/api/comments/get-comments?post=${props.id}`)
+      .then(res => {
+        setComments(res.data)
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }, [])
 
   return (
     <View
@@ -50,16 +62,17 @@ export const ModalPost = (props) => {
             </View>
 
               <View style={styles.comments}>
-                <CommentItem 
-                  profile_image={props.profile_image} 
-                  username={props.username}
-                  content={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, eius? Voluptate, voluptates nobis? Similique id sed consequatur praesentium quo nam dolorem hic optio harum quia dolorum doloremque eaque, earum ipsa!'}
-                />
-                 <CommentItem 
-                  profile_image={props.profile_image} 
-                  username={props.username}
-                  content={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, eius? Voluptate, voluptates nobis? Similique id sed consequatur praesentium quo nam dolorem hic optio harum quia dolorum doloremque eaque, earum ipsa!'}
-                />
+                {
+                  comments.map(comment => (
+                    <CommentItem
+                      key={comment.id}
+                      id={comment.id}
+                      profile_image={comment.profile_image} 
+                      username={comment.username}
+                      content={comment.comment}
+                    />
+                  ))
+                  }
               </View>
           </View>
         </ScrollView>
