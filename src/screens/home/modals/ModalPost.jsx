@@ -14,6 +14,7 @@ export const ModalPost = (props) => {
     apiClient.get(`/api/comments/get-comments?post=${props.id}`)
       .then(res => {
         setComments(res.data)
+        console.log(comments)
       })
       .catch(err => {
         console.error(err)
@@ -62,17 +63,23 @@ export const ModalPost = (props) => {
             </View>
 
               <View style={styles.comments}>
-                {
-                  comments.map(comment => (
-                    <CommentItem
-                      key={comment.id}
-                      id={comment.id}
-                      profile_image={comment.profile_image} 
-                      username={comment.username}
-                      content={comment.comment}
-                    />
-                  ))
-                  }
+                { comments.length > 0 ?
+                    comments.map(comment => (
+                      <CommentItem
+                        key={comment.id}
+                        id={comment.id}
+                        profile_image={comment.profile_image} 
+                        username={comment.username}
+                        content={comment.comment}
+                      />
+                    ))
+                  :
+                    <View style={styles.textCommmentContainer}>
+                      <Text style={styles.textComment}>
+                        Aún no hay comentarios
+                      </Text>
+                    </View>
+                }
               </View>
           </View>
         </ScrollView>

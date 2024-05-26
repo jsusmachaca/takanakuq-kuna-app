@@ -42,7 +42,6 @@ export const Posts = () => {
         } 
       }}
       data={mostData}
-      ItemSeparatorComponent={() => <Text>  </Text>}
       renderItem={({ item: data }) => (
         <PostsItem data={data} />
       )}

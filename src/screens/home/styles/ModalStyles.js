@@ -40,7 +40,20 @@ export const styles = StyleSheet.create({
     backgroundColor: "#E9E9E9",
     borderRadius: 20,
     paddingTop: 10,
+    paddingBottom: 10,
     paddingLeft: 3,
     marginTop: 10
   },
+  textCommmentContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 30,
+    padding: 0,
+    margin: 0,
+  },
+  textComment: {
+    paddingBottom: 10,
+    fontSize: 15
+  }
 })
