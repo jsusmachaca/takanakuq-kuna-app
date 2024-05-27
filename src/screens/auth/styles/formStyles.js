@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     marginTop: 20
   },
   formContainerRegister: {
-    marginTop: 15,
+    marginTop: 8,
     marginBottom: 0,
     padding: 0
   },

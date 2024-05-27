@@ -5,8 +5,15 @@ export const FormLogin = (props) => {
   return (
     <View style={styles.formContainer}>
       <View style={styles.formulario}>
-        <TextInput placeholder='Ingrese su nombre usuario' style={styles.loginInput} />
-        <TextInput placeholder='Ingrese su contraseña' style={styles.loginInput} />
+        <TextInput 
+          placeholder='Ingrese su nombre usuario'
+          style={styles.loginInput}
+          returnKeyType='next'
+        />
+        <TextInput 
+          placeholder='Ingrese su contraseña'
+          style={styles.loginInput}
+        />
 
         <TouchableOpacity style={styles.loginButton}>
           <Text style={styles.buttonText}>Iniciar sesión</Text>

@@ -4,6 +4,7 @@ import { styles } from '../styles/formStyles'
 
 export const FormRegister = () => {
   const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [names, setNames] = useState('')
   const [lastNames, setLastNames] = useState('')
   const [password, setPassword] = useState('')
@@ -13,11 +14,18 @@ export const FormRegister = () => {
     <View style={styles.formContainerRegister}>
       <View style={styles.formulario}>
         <TextInput 
-          placeholder='Un nombre de usuario' 
+          placeholder='Ingrese un nombre de usuario' 
           style={styles.loginInput}
           returnKeyType='next'
           value={username}
           onChangeText={setUsername}
+        />
+        <TextInput 
+          placeholder='Ingrese un correo electrónico' 
+          style={styles.loginInput}
+          returnKeyType='next'
+          value={email}
+          onChangeText={setEmail}
         />
         <TextInput 
           placeholder='Ingrese sus nombres' 
@@ -49,10 +57,7 @@ export const FormRegister = () => {
 
         <TouchableOpacity 
           style={styles.loginButton}
-          onPress={() => Alert.alert(`
-          con username ${username}
-          y password ${password}
-          `)}
+          onPress={() => {}}
         >
           <Text style={styles.buttonText}>Registrarse</Text>
         </TouchableOpacity>              

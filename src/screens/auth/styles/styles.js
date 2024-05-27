@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
     height: 350,
   },
   logoRegister: {
-    marginTop: 40,
+    marginTop: 30,
     padding: 0,
     marginBottom: 0,
     padding: 0,
